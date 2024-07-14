@@ -84,7 +84,7 @@ for subpath in "${!redirect_mapping[@]}"; do
     <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
     <meta property=\"og:title\" content=\"$subpath - $glnk_username.glnk.dev\">
     <meta property=\"og:description\" content=\"Redirecting to $redirect_link\">
-    <meta property=\"og:image\" content=\"/favicon.png\">
+    <meta property=\"og:image\" content=\"https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png\">
     <meta property=\"og:url\" content=\"https://$glnk_username.glnk.dev$subpath\">
 </head>
 <body>
