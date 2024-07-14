@@ -13,7 +13,7 @@ cat <<EOL >$glnk_html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="glnk.dev - Go Link to Your URL">
+    <meta name="description" content="Go Link to Your URL - glnk.dev">
     <title>Go Links - $glnk_username.glnk.dev</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
@@ -21,7 +21,7 @@ cat <<EOL >$glnk_html
 <body class="bg-gray-100 text-gray-900">
     <div class="container mx-auto p-4">
         <header class="mb-8">
-            <h1 class="text-3xl font-bold">$glnk_username.glnk.dev - Go Links</h1>
+            <h1 class="text-3xl font-bold">Go Links - $glnk_username.glnk.dev</h1>
             <p class="mt-2 text-lg">Easily manage your custom short links with <a href="https://glnk.dev" class="text-blue-500 hover:underline">glnk.dev</a>.</p>
         </header>
         <table class="min-w-full bg-white shadow-md rounded-lg">
