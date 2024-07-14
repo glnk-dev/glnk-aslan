@@ -79,9 +79,13 @@ for subpath in "${!redirect_mapping[@]}"; do
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>Redirecting to $redirect_link</title>
-    <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
     <link rel=\"canonical\" href=\"$redirect_link\">
     <link rel=\"icon\" href=\"https://glnk.dev/favicon.ico\" type=\"image/x-icon\">
+    <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
+    <meta property=\"og:title\" content=\"$subpath - $glnk_username.glnk.dev\">
+    <meta property=\"og:description\" content=\"Redirecting to $redirect_link\">
+    <meta property=\"og:image\" content=\"/favicon.png\">
+    <meta property=\"og:url\" content=\"https://$glnk_username.glnk.dev$subpath\">
 </head>
 <body>
     <p>If you are not redirected, <a href=\"$redirect_link\">click here</a>.</p>
