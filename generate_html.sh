@@ -14,6 +14,10 @@ cat <<EOL >$glnk_html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Go Link to Your URL - glnk.dev">
+    <meta property="og:title" content="Go Links - $glnk_username.glnk.dev">
+    <meta property="og:description" content="Easily manage your custom short links with glnk.dev.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.png">
+    <meta property="og:url" content="https://$glnk_username.glnk.dev">
     <title>Go Links - $glnk_username.glnk.dev</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
