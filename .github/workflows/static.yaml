@@ -36,7 +36,7 @@ jobs:
         uses: actions/configure-pages@v3
       
       - name: Generate html pages
-        run: bash generate_html.sh
+        run: bash generate_html.sh aslan
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
