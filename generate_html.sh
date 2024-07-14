@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# Check if username is passed as an argument
+if [ -z "$1" ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+
+glnk_username="$1"
 glnk_html=build/index.html
-glnk_username="aslan"
 
 # Create the build directory if it doesn't exist
 mkdir -p build
