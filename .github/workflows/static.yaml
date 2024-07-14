@@ -34,7 +34,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      
+
+      - name: Fetch HTML Generation Script
+        run: wget https://raw.githubusercontent.com/glnk-dev/.github/main/scripts/generate_html.sh
+
+      - name: Make Script Executable
+        run: chmod +x generate_html.sh
+
       - name: Generate HTML pages
         run: |
           username=${GITHUB_REPOSITORY#*-}
