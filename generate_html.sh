@@ -6,9 +6,6 @@ glnk_username="aslan"
 # Create the build directory if it doesn't exist
 mkdir -p build
 
-# Copy the favicon.ico to the build directory
-cp favicon.ico build/favicon.ico
-
 # Create the HTML file using the JSON data
 cat <<EOL >$glnk_html
 <!DOCTYPE html>
