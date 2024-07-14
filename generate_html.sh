@@ -1,4 +1,5 @@
 #!/bin/bash
+
 glnk_html=build/index.html
 
 # Create the build directory if it doesn't exist
@@ -7,39 +8,42 @@ mkdir -p build
 # Create the HTML file using the JSON data
 cat <<EOL >$glnk_html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Go Links</title>
-    <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="glnk.dev - Go Link to Your URL">
+    <title>Go Links - glnk.dev</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <table>
-        <tr>
-            <th>Subpath</th>
-            <th>Redirect Link</th>
-        </tr>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-4">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold">glnk.dev - Go Links</h1>
+            <p class="mt-2 text-lg">Easily manage your custom short links with <code>glnk.dev</code>.</p>
+        </header>
+        <table class="min-w-full bg-white shadow-md rounded-lg">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 font-semibold text-gray-700">Subpath</th>
+                    <th class="py-2 px-4 bg-gray-200 font-semibold text-gray-700">Redirect Link</th>
+                </tr>
+            </thead>
+            <tbody>
 EOL
 
 # Loop through the JSON data and generate the table rows
-# jq -r '. | to_entries[] | "<tr><td><a href=\"/go" + .key + "\">/go" + .key + "</a></td><td><a href=\"" + .value + "\">" + .value + "</a></td></tr>"' glnk.json >>$glnk_html
-jq -r '. | to_entries[] | "<tr><td><a href=\"" + .key + "\">" + .key + "</a></td><td><a href=\"" + .value + "\">" + .value + "</a></td></tr>"' glnk.json >>$glnk_html
+jq -r '. | to_entries[] | "<tr><td class=\"border-t py-2 px-4\"><a href=\"" + .key + "\" class=\"text-blue-500 hover:underline\">" + .key + "</a></td><td class=\"border-t py-2 px-4\"><a href=\"" + .value + "\" class=\"text-blue-500 hover:underline\">" + .value + "</a></td></tr>"' glnk.json >>$glnk_html
 
 # Complete the HTML file
-echo "</table></body></html>" >>$glnk_html
+cat <<EOL >>$glnk_html
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+EOL
+
 echo "Generated $glnk_html successfully!"
 
 declare -A redirect_mapping
@@ -64,10 +68,18 @@ for subpath in "${!redirect_mapping[@]}"; do
 
     # Create the content for the index.html file
     content="<!DOCTYPE html>
-<meta charset=utf-8>
-<title>Redirecting to $subpath</title>
-<meta http-equiv=refresh content=\"0; URL=$redirect_link\">
-<link rel=canonical href=\"$redirect_link\">
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Redirecting to $redirect_link</title>
+    <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
+    <link rel=\"canonical\" href=\"$redirect_link\">
+</head>
+<body>
+    <p>If you are not redirected, <a href=\"$redirect_link\">click here</a>.</p>
+</body>
+</html>
 "
 
     # Create the directory for the subpath if it doesn't exist
