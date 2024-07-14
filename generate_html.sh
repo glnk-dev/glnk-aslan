@@ -1,6 +1,7 @@
 #!/bin/bash
 
 glnk_html=build/index.html
+glnk_username="aslan"
 
 # Create the build directory if it doesn't exist
 mkdir -p build
@@ -13,14 +14,15 @@ cat <<EOL >$glnk_html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="glnk.dev - Go Link to Your URL">
-    <title>Go Links - glnk.dev</title>
+    <title>Go Links - $glnk_username.glnk.dev</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="https://glnk.dev/favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="container mx-auto p-4">
         <header class="mb-8">
-            <h1 class="text-3xl font-bold">glnk.dev - Go Links</h1>
-            <p class="mt-2 text-lg">Easily manage your custom short links with <code>glnk.dev</code>.</p>
+            <h1 class="text-3xl font-bold">$glnk_username.glnk.dev - Go Links</h1>
+            <p class="mt-2 text-lg">Easily manage your custom short links with <a href="https://glnk.dev" class="text-blue-500 hover:underline">glnk.dev</a>.</p>
         </header>
         <table class="min-w-full bg-white shadow-md rounded-lg">
             <thead>
@@ -75,6 +77,7 @@ for subpath in "${!redirect_mapping[@]}"; do
     <title>Redirecting to $redirect_link</title>
     <meta http-equiv=\"refresh\" content=\"0; URL=$redirect_link\">
     <link rel=\"canonical\" href=\"$redirect_link\">
+    <link rel=\"icon\" href=\"https://glnk.dev/favicon.ico\" type=\"image/x-icon\">
 </head>
 <body>
     <p>If you are not redirected, <a href=\"$redirect_link\">click here</a>.</p>
