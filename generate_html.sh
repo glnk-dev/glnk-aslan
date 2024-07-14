@@ -19,7 +19,7 @@ cat <<EOL >$glnk_html
     <meta name="description" content="glnk.dev - Go Link to Your URL">
     <title>Go Links - $glnk_username.glnk.dev</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="https://glnk.dev/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://raw.githubusercontent.com/glnk-dev/.github/main/favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="container mx-auto p-4">
