@@ -20,6 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build and Deploy GitHub Pages
-        uses: glnk-dev/webapp@v0.1.2
+        uses: glnk-dev/webapp@v0.2.0
         with:
           GLNK_USERNAME: aslan
