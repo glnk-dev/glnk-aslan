@@ -8,5 +8,6 @@
 "/db": https://walnut-father-f60.notion.site/f5a5d94239de475fadf51bd5965096c1?v=1f83fe78493b4cb0a23e27ccf6069790
 "/ts": https://www.kotsa.or.kr/tslms/usrs/crsseq/eduCrsSchdlYearForm.do
 "/codecrafters": https://app.codecrafters.io
+"/codecrafters/{$1}": https://app.codecrafters.io/courses/{$1}
 "/udemy": https://www.udemy.com/
 "/pagoda": https://m.pagodatalkool.com/
