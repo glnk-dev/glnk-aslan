@@ -23,4 +23,4 @@ jobs:
         uses: glnk-dev/webapp@main
         with:
           GLNK_USERNAME: aslan
-          GLNK_AUTHORIZED_ONLY: 1
+          GLNK_AUTHORIZED_ONLY: 0
